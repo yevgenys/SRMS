@@ -1,21 +1,34 @@
 # fe
+
 Stands for frontend subdirectory
 
 # be
+
 Stands for backend subdirectory
 
 ## NOTES
+
 NOTE: extensive tests are omitted for faster development, only added couple as an example
 
+## Assumptions
+
+since there is nothing said about operator of this application, this operator will be admin,
+which will be automatically registered upon system installation - and editing of it possible only manually with django
+cmd
+
 ## Run entire project locally
+
 #### Requirements:
+
 * docker
 
 #### Run command
+
 * navigate to project root
 * execute: `docker compose up`
-  * fe link: http://localhost:3000
-  * be link: http://localhost:8000/doc/
+    * fe link: http://localhost:3000
+        * login credentials(please read assumption section): Admin/LocalAdminPwd
+    * be link: http://localhost:8000/doc/
 
 ## Example of possible prod deployment:
 NOTE: in current project prod environment is omitted

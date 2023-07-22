@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 SECRET_KEY = os.getenv("SECRET_KEY", None)
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = False
@@ -24,6 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'students',
+    'results',
+    'course',
 ]
 
 MIDDLEWARE = [
