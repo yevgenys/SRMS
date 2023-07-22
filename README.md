@@ -2,10 +2,10 @@
 Stands for frontend subdirectory
 
 # be
-Stands for beckend subdirectory
+Stands for backend subdirectory
 
 ## NOTES
-NOTE: extensive tests are omited for faster development, only added cuople as example
+NOTE: extensive tests are omitted for faster development, only added couple as an example
 
 ## Run entire project locally
 #### Requirements:
@@ -13,7 +13,7 @@ NOTE: extensive tests are omited for faster development, only added cuople as ex
 
 #### Run command
 * navigate to project root
-* execute: docker compose up
+* execute: `docker compose up`
   * fe link: http://localhost:3000
   * be link: http://localhost:8000/doc/
 
@@ -31,7 +31,7 @@ NOTE: in current project prod environment is omitted
 | good for mature projects |                              |
 
 ### Heroku
-just give access to your BE/FE (for BE would need to add run command, typically with 'gunicorn myproject.wsgi') repos and on push Heroku will autodeploy everything
+just give access to your git BE/FE (for BE would need to add a run command, typically with 'gunicorn myproject.wsgi') repos and on push Heroku will autodeploy everything
 
 | Pros                           | Cons                                     |
 |--------------------------------|------------------------------------------|  
