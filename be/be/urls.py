@@ -15,13 +15,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
-urlpatterns = [
+API_DEFAULT_VERSION = "v1/api"
 
+urlpatterns = [
+    path(f'{API_DEFAULT_VERSION}/student/', include("student.urls"), name="students"),
+    path(f'{API_DEFAULT_VERSION}/result/', include("result.urls"), name="results"),
+    path(f'{API_DEFAULT_VERSION}/course/', include("course.urls"), name="course"),
 ]
 
 if settings.DEBUG:

@@ -1,7 +1,7 @@
 from django.db import models
 
 from course.models import Course
-from students.models import Student
+from student.models import Student
 
 US_SYSTEM = [
     ("A+", "A+"),
