@@ -19,9 +19,10 @@ export default function StudentListComponent() {
             const {data} = await listStudents();
             setStudents(data);
         } catch (err) {
-            setSnackbarOpen(true);
-            const errMsg = err.response !== undefined ? err.response.data.detail || err.response.data[0] : err;
+            setSnackbarType("error");
+            const errMsg = err.response !== undefined ? JSON.stringify(err.response.data) : err;
             setSnackbarMsg(`${err.message}: ${errMsg}`);
+            setSnackbarOpen(true);
         } finally {
             setLoading(false);
         }
@@ -41,7 +42,7 @@ export default function StudentListComponent() {
             setSnackbarOpen(true);
         } catch (err) {
             setSnackbarOpen(true);
-            const errMsg = err.response !== undefined ? err.response.data.detail || err.response.data[0] : err;
+            const errMsg = err.response !== undefined ? JSON.stringify(err.response.data) : err;
             setSnackbarMsg(`${err.message}: ${errMsg}`);
         } finally {
             setLoading(false);
@@ -52,7 +53,7 @@ export default function StudentListComponent() {
         loading ?
             <LoadingComponent/>
             :
-            <Box component="main" sx={{p: 1, flexGrow: 1}}>
+            <Box component="main" sx={{p: 1, flexGrow: 0.5}}>
                 <DrawerHeader/>
                 <TableContainer component={Paper} sx={{p: 3}}>
                     <Table aria-label="Students">

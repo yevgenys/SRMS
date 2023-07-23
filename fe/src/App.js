@@ -1,13 +1,17 @@
 import './App.css';
 import {RouterComponent} from "./router";
 import {MenuComponent} from "./menu";
+import {LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 
 function App() {
     return (
-        <div className="App" style={{display: 'flex'}}>
-            <MenuComponent/>
-            <RouterComponent/>
-        </div>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <div className="App" style={{display: 'flex', alignContent: "center", justifyContent: "center"}}>
+                <MenuComponent/>
+                <RouterComponent/>
+            </div>
+        </LocalizationProvider>
     );
 }
 
