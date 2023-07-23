@@ -32,6 +32,8 @@ import {
     COURSE_ADD_NAVNAME,
     COURSE_LIST_NAVNAME,
     DRAWER_WIDTH,
+    RESULT_ADD_NAVNAME,
+    RESULT_LIST_NAVNAME,
     STUDENT_ADD_NAVNAME,
     STUDENT_LIST_NAVNAME
 } from "../_common/constants";
@@ -178,9 +180,13 @@ export default function MenuComponent() {
                 </List>
                 <Divider/>
                 <List>
-                    {['Add New Results', 'Results List'].map((text, index) => (
+                    {[RESULT_ADD_NAVNAME, RESULT_LIST_NAVNAME].map((text, index) => (
                         <ListItem key={text} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton
+                                component={Link}
+                                to={routes.find(o => o.navname === text).path}
+                                selected={location.pathname === routes.find(o => o.navname === text).path}
+                            >
                                 <ListItemIcon>
                                     {index === 0 ? <PostAddIcon/> : <SummarizeIcon/>}
                                 </ListItemIcon>
