@@ -6,9 +6,6 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY . .
+COPY fe .
 
 EXPOSE 3000
-
-RUN chmod +x /prod-entrypoint.sh
-ENTRYPOINT ["/prod-entrypoint.sh"]
