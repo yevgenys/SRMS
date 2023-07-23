@@ -1,7 +1,14 @@
 import {Route, Routes} from "react-router-dom";
+import {HomeComponent} from "../home";
 
 
-const routes = [];
+export const routes = [
+    {
+        path: "/",
+        element: HomeComponent,
+        navname: "Home",
+    },
+];
 
 
 export default function RouterComponent(props) {

@@ -2,7 +2,6 @@ import {
     Box,
     CssBaseline,
     Divider,
-    Drawer,
     IconButton,
     List,
     ListItem,
@@ -14,6 +13,8 @@ import {
     Typography,
     useTheme
 } from "@mui/material";
+import MuiDrawer from '@mui/material/Drawer';
+import {Link, useLocation} from 'react-router-dom';
 import MuiAppBar from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -26,37 +27,69 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import {useState} from "react";
+import {routes} from "../router/RouterComponent";
+import {drawerWidth} from "../_common/constants";
+import {DrawerHeader} from "../_common/main_window";
 
-const drawerWidth = 240;
+const openedMixin = (theme) => ({
+    width: drawerWidth,
+    transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.enteringScreen,
+    }),
+    overflowX: 'hidden',
+});
+
+const closedMixin = (theme) => ({
+    transition: theme.transitions.create('width', {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: 'hidden',
+    width: `calc(${theme.spacing(7)} + 1px)`,
+    [theme.breakpoints.up('sm')]: {
+        width: `calc(${theme.spacing(8)} + 1px)`,
+    },
+});
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== 'open',
 })(({theme, open}) => ({
-    transition: theme.transitions.create(['margin', 'width'], {
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
     ...(open && {
+        marginLeft: drawerWidth,
         width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
     }),
 }));
 
-const DrawerHeader = styled('div')(({theme}) => ({
-    display: 'flex',
-    alignItems: 'center',
-    padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
-    ...theme.mixins.toolbar,
-    justifyContent: 'flex-end',
-}));
+const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
+    ({theme, open}) => ({
+        width: drawerWidth,
+        flexShrink: 0,
+        whiteSpace: 'nowrap',
+        boxSizing: 'border-box',
+        ...(open && {
+            ...openedMixin(theme),
+            '& .MuiDrawer-paper': openedMixin(theme),
+        }),
+        ...(!open && {
+            ...closedMixin(theme),
+            '& .MuiDrawer-paper': closedMixin(theme),
+        }),
+    }),
+);
 
 export default function MenuComponent(props) {
     const theme = useTheme();
+    const location = useLocation();
     const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => setOpen(true);
@@ -82,19 +115,7 @@ export default function MenuComponent(props) {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Drawer
-                sx={{
-                    width: drawerWidth,
-                    flexShrink: 0,
-                    '& .MuiDrawer-paper': {
-                        width: drawerWidth,
-                        boxSizing: 'border-box',
-                    },
-                }}
-                variant="persistent"
-                anchor="left"
-                open={open}
-            >
+            <Drawer variant="permanent" open={open}>
                 <DrawerHeader>
                     <IconButton onClick={handleDrawerClose}>
                         {theme.direction === 'ltr' ? <ChevronLeftIcon/> : <ChevronRightIcon/>}
@@ -103,7 +124,11 @@ export default function MenuComponent(props) {
                 <Divider/>
                 <List>
                     <ListItem key="Home" disablePadding>
-                        <ListItemButton>
+                        <ListItemButton
+                            component={Link}
+                            to={routes.find(o => o.navname === 'Home').path}
+                            selected={location.pathname === routes.find(o => o.navname === 'Home').path}
+                        >
                             <ListItemIcon>
                                 <HomeIcon/>
                             </ListItemIcon>

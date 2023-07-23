@@ -1,6 +1,6 @@
 import './App.css';
 import {RouterComponent} from "./router";
-import MenuComponent from "./menu/MenuComponent";
+import {MenuComponent} from "./menu";
 
 function App() {
     return (
