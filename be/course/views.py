@@ -6,7 +6,7 @@ from permissions.custom_permissions import IsSchoolManager
 
 
 class CoursesView(generics.ListCreateAPIView):
-    queryset = Course.objects.filter(deleted=False).all()
+    queryset = Course.objects.all()
     serializer_class = CourseSerializer
     permission_classes = [IsSchoolManager]
 

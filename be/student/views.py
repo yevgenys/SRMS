@@ -6,12 +6,12 @@ from student.serializers import StudentSerializer
 
 
 class StudentsView(generics.ListCreateAPIView):
-    queryset = Student.objects.filter(deleted=False).all()
+    queryset = Student.objects.all()
     serializer_class = StudentSerializer
     permission_classes = [IsSchoolManager]
 
 
-class StudentView(generics.RetrieveAPIView):
+class StudentView(generics.RetrieveDestroyAPIView):
     serializer_class = StudentSerializer
     permission_classes = [IsSchoolManager]
 

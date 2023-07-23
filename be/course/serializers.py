@@ -6,4 +6,4 @@ from course.models import Course
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        exclude = ['deleted']
+        fields = '__all__'

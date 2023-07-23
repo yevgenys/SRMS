@@ -1,26 +1,52 @@
 import {useEffect, useState} from "react";
-import {listStudents} from "../_services/StudentsService";
+import {deleteStudent, listStudents} from "../_services/StudentsService";
 import {DrawerHeader} from "../_common/main_window";
 import {Box, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import LoadingComponent from "../_common/LoadingComponent";
 import DeleteIcon from '@mui/icons-material/Delete';
+import DisplaySnackbar from "../_common/user_feedback";
 
-export default function StudentListComponent(props) {
+export default function StudentListComponent() {
     const [loading, setLoading] = useState(false);
     const [students, setStudents] = useState([]);
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarType, setSnackbarType] = useState("error");
+    const [snackbarMsg, setSnackbarMsg] = useState(null);
 
     const getData = async () => {
-        setLoading(true);
-        const {data} = await listStudents();
-        setStudents(data);
-        setLoading(false);
+        try {
+            setLoading(true);
+            const {data} = await listStudents();
+            setStudents(data);
+        } catch (err) {
+            setSnackbarOpen(true);
+            const errMsg = err.response !== undefined ? err.response.data.detail || err.response.data[0] : err;
+            setSnackbarMsg(`${err.message}: ${errMsg}`);
+        } finally {
+            setLoading(false);
+        }
     };
 
     useEffect(() => {
         getData();
     }, [students.length]);
 
-    console.log(students);
+    const deleteAndRefreshPage = async (id) => {
+        try {
+            setLoading(true);
+            await deleteStudent(id);
+            await getData();
+            setSnackbarType("info");
+            setSnackbarMsg(`Deleted user with id: ${id}`);
+            setSnackbarOpen(true);
+        } catch (err) {
+            setSnackbarOpen(true);
+            const errMsg = err.response !== undefined ? err.response.data.detail || err.response.data[0] : err;
+            setSnackbarMsg(`${err.message}: ${errMsg}`);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         loading ?
@@ -41,14 +67,14 @@ export default function StudentListComponent(props) {
                         <TableBody>
                             {students.map((row) => (
                                 <TableRow
-                                    key={row.email}
+                                    key={row.id}
                                     sx={{'&:last-child td, &:last-child th': {border: 0}}}
                                 >
                                     <TableCell align="center">{row.first_name} {row.last_name}</TableCell>
                                     <TableCell align="center">{row.date_of_birth}</TableCell>
                                     <TableCell align="center">{row.email}</TableCell>
                                     <TableCell align="center">
-                                        <IconButton aria-label="delete">
+                                        <IconButton aria-label="delete" onClick={() => deleteAndRefreshPage(row.id)}>
                                             <DeleteIcon/>
                                         </IconButton>
                                     </TableCell>
@@ -57,6 +83,11 @@ export default function StudentListComponent(props) {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                <DisplaySnackbar
+                    snackbarOpen={snackbarOpen}
+                    setSnackbarOpen={setSnackbarOpen}
+                    snackbarType={snackbarType}
+                    snackbarMsg={snackbarMsg}/>
             </Box>
     );
 }
