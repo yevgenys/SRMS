@@ -20,3 +20,7 @@ add prod version of DB to docker config, and reconfig local [dev_settings.py](be
 2. execute migrations: python ./manage.py migrate
 3. execute migrations: python manage.py collectstatic --noinput
 4. start dev server: python ./manage.py runserver
+
+### Local documentation
+
+If application is running in a dev mode, you can check endpoints by navigating to http://localhost:8000/doc/ 

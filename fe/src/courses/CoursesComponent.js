@@ -33,7 +33,7 @@ export default function CoursesComponent() {
             setLoading(true);
             await deleteCourse(id);
             await getData();
-            setSnackbarType("info");
+            setSnackbarType("success");
             setSnackbarMsg(`Deleted course with id: ${id}`);
             setSnackbarOpen(true);
         } catch (err) {

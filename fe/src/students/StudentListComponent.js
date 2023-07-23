@@ -37,7 +37,7 @@ export default function StudentListComponent() {
             setLoading(true);
             await deleteStudent(id);
             await getData();
-            setSnackbarType("info");
+            setSnackbarType("success");
             setSnackbarMsg(`Deleted user with id: ${id}`);
             setSnackbarOpen(true);
         } catch (err) {

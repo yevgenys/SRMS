@@ -24,7 +24,7 @@ export default function StudentComponent() {
             const formattedDate = dateOfBirth.toJSON().split("T")[0];
             await createStudent(firstName, lastName, formattedDate, email);
             setSnackbarMsg(`Student ${firstName} was created`);
-            setSnackbarType("info");
+            setSnackbarType("success");
             setSnackbarOpen(true);
         } catch (err) {
             setSnackbarType("error");
