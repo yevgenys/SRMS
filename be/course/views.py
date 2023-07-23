@@ -11,7 +11,7 @@ class CoursesView(generics.ListCreateAPIView):
     permission_classes = [IsSchoolManager]
 
 
-class CourseView(generics.RetrieveAPIView):
+class CourseView(generics.RetrieveDestroyAPIView):
     serializer_class = CourseSerializer
     permission_classes = [IsSchoolManager]
 

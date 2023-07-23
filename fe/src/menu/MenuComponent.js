@@ -28,7 +28,13 @@ import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import {useState} from "react";
 import {routes} from "../router/RouterComponent";
-import {DRAWER_WIDTH, STUDENT_ADD_NAVNAME, STUDENT_LIST_NAVNAME} from "../_common/constants";
+import {
+    COURSE_ADD_NAVNAME,
+    COURSE_LIST_NAVNAME,
+    DRAWER_WIDTH,
+    STUDENT_ADD_NAVNAME,
+    STUDENT_LIST_NAVNAME
+} from "../_common/constants";
 import {DrawerHeader} from "../_common/main_window";
 
 const openedMixin = (theme) => ({
@@ -87,7 +93,7 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})
     }),
 );
 
-export default function MenuComponent(props) {
+export default function MenuComponent() {
     const theme = useTheme();
     const location = useLocation();
     const [open, setOpen] = useState(false);
@@ -155,9 +161,13 @@ export default function MenuComponent(props) {
                 </List>
                 <Divider/>
                 <List>
-                    {['Add New Courses', 'Courses List'].map((text, index) => (
+                    {[COURSE_ADD_NAVNAME, COURSE_LIST_NAVNAME].map((text, index) => (
                         <ListItem key={text} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton
+                                component={Link}
+                                to={routes.find(o => o.navname === text).path}
+                                selected={location.pathname === routes.find(o => o.navname === text).path}
+                            >
                                 <ListItemIcon>
                                     {index === 0 ? <DomainAddIcon/> : <ListAltIcon/>}
                                 </ListItemIcon>

@@ -8,7 +8,7 @@ Stands for backend subdirectory
 
 ## NOTES
 
-NOTE: extensive tests are omitted for faster development, only added couple as an example
+NOTE: extensive tests are omitted for faster development
 
 ## Assumptions
 

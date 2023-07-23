@@ -1,11 +1,11 @@
-import {Typography} from "@mui/material";
-import {DrawerHeader, Main} from "../_common/main_window";
+import {Box, Typography} from "@mui/material";
+import {DrawerHeader} from "../_common/main_window";
 
 export default function HomeComponent() {
     return (
-        <Main elevation={0}>
+        <Box component="main" sx={{p: 1}}>
             <DrawerHeader/>
-            <Typography>Please select category from side menu</Typography>
-        </Main>
+            <Typography variant="h2">Please select category from the side menu</Typography>
+        </Box>
     );
 }

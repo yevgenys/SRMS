@@ -1,4 +1,4 @@
-import {Box, styled} from "@mui/material";
+import {styled} from "@mui/material";
 
 export const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -8,8 +8,3 @@ export const DrawerHeader = styled('div')(({theme}) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
 }));
-
-export const Main = styled(Box)({
-    flexGrow: 1,
-    p: 3
-});
