@@ -20,7 +20,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
 
-API_DEFAULT_VERSION = "v1/api"
+API_DEFAULT_VERSION = "api/v1"
 
 urlpatterns = [
     path(f'{API_DEFAULT_VERSION}/student/', include("student.urls"), name="students"),

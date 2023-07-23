@@ -12,9 +12,8 @@ NOTE: extensive tests are omitted for faster development, only added couple as a
 
 ## Assumptions
 
-since there is nothing said about operator of this application, this operator will be admin,
-which will be automatically registered upon system installation - and editing of it possible only manually with django
-cmd
+since there is nothing said about operator of this application, application will be available to public -
+should be changed for actual application(in the code there are preparations for such migration)
 
 ## Run entire project locally
 

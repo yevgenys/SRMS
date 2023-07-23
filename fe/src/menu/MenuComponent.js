@@ -28,11 +28,11 @@ import DomainAddIcon from '@mui/icons-material/DomainAdd';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 import {useState} from "react";
 import {routes} from "../router/RouterComponent";
-import {drawerWidth} from "../_common/constants";
+import {DRAWER_WIDTH, STUDENT_ADD_NAVNAME, STUDENT_LIST_NAVNAME} from "../_common/constants";
 import {DrawerHeader} from "../_common/main_window";
 
 const openedMixin = (theme) => ({
-    width: drawerWidth,
+    width: DRAWER_WIDTH,
     transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
@@ -61,8 +61,8 @@ const AppBar = styled(MuiAppBar, {
         duration: theme.transitions.duration.leavingScreen,
     }),
     ...(open && {
-        marginLeft: drawerWidth,
-        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: DRAWER_WIDTH,
+        width: `calc(100% - ${DRAWER_WIDTH}px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -72,7 +72,7 @@ const AppBar = styled(MuiAppBar, {
 
 const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})(
     ({theme, open}) => ({
-        width: drawerWidth,
+        width: DRAWER_WIDTH,
         flexShrink: 0,
         whiteSpace: 'nowrap',
         boxSizing: 'border-box',
@@ -132,15 +132,19 @@ export default function MenuComponent(props) {
                             <ListItemIcon>
                                 <HomeIcon/>
                             </ListItemIcon>
-                            <ListItemText primary="Home"/>
+                            <ListItemText primary='Home'/>
                         </ListItemButton>
                     </ListItem>
                 </List>
                 <Divider/>
                 <List>
-                    {['Add New Students', 'Students List'].map((text, index) => (
+                    {[STUDENT_ADD_NAVNAME, STUDENT_LIST_NAVNAME].map((text, index) => (
                         <ListItem key={text} disablePadding>
-                            <ListItemButton>
+                            <ListItemButton
+                                component={Link}
+                                to={routes.find(o => o.navname === text).path}
+                                selected={location.pathname === routes.find(o => o.navname === text).path}
+                            >
                                 <ListItemIcon>
                                     {index === 0 ? <GroupAddIcon/> : <RecentActorsIcon/>}
                                 </ListItemIcon>

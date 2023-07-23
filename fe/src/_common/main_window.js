@@ -1,5 +1,4 @@
-import {Paper, styled} from "@mui/material";
-import {drawerWidth} from "./constants";
+import {Box, styled} from "@mui/material";
 
 export const DrawerHeader = styled('div')(({theme}) => ({
     display: 'flex',
@@ -10,21 +9,7 @@ export const DrawerHeader = styled('div')(({theme}) => ({
     ...theme.mixins.toolbar,
 }));
 
-export const Main = styled(Paper, {shouldForwardProp: (prop) => prop !== 'open'})(
-    ({theme, open}) => ({
-        flexGrow: 1,
-        padding: theme.spacing(3),
-        transition: theme.transitions.create('margin', {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-        }),
-        marginLeft: `-${drawerWidth}px`,
-        ...(open && {
-            transition: theme.transitions.create('margin', {
-                easing: theme.transitions.easing.easeOut,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
-            marginLeft: 0,
-        }),
-    }),
-);
+export const Main = styled(Box)({
+    flexGrow: 1,
+    p: 3
+});
