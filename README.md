@@ -12,8 +12,11 @@ NOTE: extensive tests are omitted for faster development
 
 ## Assumptions
 
-since there is nothing said about operator of this application, application will be available to public -
-should be changed for actual application(in the code there are preparations for such migration)
+* since there is nothing said about operator of this application, application will be available to public -
+  should be changed for actual application(in the code there are preparations for such migration)
+* There is no pagination for tables(for bigger data chunks should be added)
+* No editing(HTTP PUT) is implemented
+* Docker is not setted up for a development, just for easy local run
 
 ## Run entire project locally
 
@@ -26,8 +29,7 @@ should be changed for actual application(in the code there are preparations for 
 * navigate to project root
 * execute: `docker compose up`
     * fe link: http://localhost:3000
-        * login credentials(please read assumption section): Admin/LocalAdminPwd
-    * be link: http://localhost:8000/doc/
+    * be API doc link: http://localhost:8000/doc/
 
 ## Example of possible prod deployment:
 NOTE: in current project prod environment is omitted
