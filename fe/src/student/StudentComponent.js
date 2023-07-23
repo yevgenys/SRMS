@@ -1,12 +1,12 @@
 import {Box, Button, Card, CardActions, CardContent, CardHeader, Grid, TextField} from "@mui/material";
-import {DrawerHeader} from "../_common/main_window";
+import {DrawerHeader} from "../_common/drawer";
 import {useState} from "react";
 import validator from "validator";
 import {DatePicker} from "@mui/x-date-pickers";
-import {createStudent} from "../_services/StudentsService";
 import DisplaySnackbar from "../_common/user_feedback";
 import LoadingComponent from "../_common/LoadingComponent";
 import dayjs from "dayjs";
+import {createStudent} from "./service";
 
 export default function StudentComponent() {
     const [loading, setLoading] = useState(false);

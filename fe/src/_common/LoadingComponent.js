@@ -1,5 +1,5 @@
 import {Box, CircularProgress} from "@mui/material";
-import {DrawerHeader} from "./main_window";
+import {DrawerHeader} from "./drawer";
 
 export default function LoadingComponent() {
     return (

@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import {BrowserRouter as Router} from "react-router-dom";
-import {theme} from "./_common/theme";
+import {theme} from "./_config/theme";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

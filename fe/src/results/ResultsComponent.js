@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {listResults} from "../_services/ResultService";
 import LoadingComponent from "../_common/LoadingComponent";
 import {Box, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import {DrawerHeader} from "../_common/main_window";
+import {DrawerHeader} from "../_common/drawer";
 import DisplaySnackbar from "../_common/user_feedback";
+import {listResults} from "./service";
 
 export default function ResultsComponent() {
     const [loading, setLoading] = useState(false);
@@ -37,6 +37,7 @@ export default function ResultsComponent() {
                 <Table aria-label="Students">
                     <TableHead>
                         <TableRow>
+                            <TableCell align="center" sx={{fontWeight: "bold"}}>Date</TableCell>
                             <TableCell align="center" sx={{fontWeight: "bold"}}>Course</TableCell>
                             <TableCell align="center" sx={{fontWeight: "bold"}}>Student</TableCell>
                             <TableCell align="center" sx={{fontWeight: "bold"}}>Score</TableCell>
@@ -47,7 +48,8 @@ export default function ResultsComponent() {
                                 key={row.id}
                                 sx={{'&:last-child td, &:last-child th': {border: 0}}}
                             >
-                                <TableCell align="center">{row.course}</TableCell>
+                            <TableCell align="center">{row.datetime}</TableCell>
+                            <TableCell align="center">{row.course}</TableCell>
                                 <TableCell align="center">{row.student}</TableCell>
                                 <TableCell align="center">{row.score}</TableCell>
                             </TableRow>))}

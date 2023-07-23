@@ -1,10 +1,11 @@
 import {useEffect, useState} from "react";
 import LoadingComponent from "../_common/LoadingComponent";
 import {Box, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
-import {deleteCourse, listCourses} from "../_services/CourseService";
+import {deleteCourse} from "../course/service";
 import DisplaySnackbar from "../_common/user_feedback";
-import {DrawerHeader} from "../_common/main_window";
+import {DrawerHeader} from "../_common/drawer";
 import DeleteIcon from "@mui/icons-material/Delete";
+import {listCourses} from "./service";
 
 export default function CoursesComponent() {
     const [loading, setLoading] = useState(false);

@@ -37,7 +37,7 @@ import {
     STUDENT_ADD_NAVNAME,
     STUDENT_LIST_NAVNAME
 } from "../_common/constants";
-import {DrawerHeader} from "../_common/main_window";
+import {DrawerHeader} from "../_common/drawer";
 
 const openedMixin = (theme) => ({
     width: DRAWER_WIDTH,

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import LoadingComponent from "../_common/LoadingComponent";
-import {DrawerHeader} from "../_common/main_window";
+import {DrawerHeader} from "../_common/drawer";
 import DisplaySnackbar from "../_common/user_feedback";
 import {Box, Button, Card, CardActions, CardContent, CardHeader, Grid, TextField} from "@mui/material";
-import {createCourse} from "../_services/CourseService";
+import {createCourse} from "./service";
 
 export default function CourseComponent() {
     const [loading, setLoading] = useState(false);

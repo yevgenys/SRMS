@@ -1,8 +1,4 @@
-import axiosInstance from "./axios_cfg";
-
-export const listCourses = () => {
-    return axiosInstance.get("/course/");
-}
+import axiosInstance from "../_config/axios_cfg";
 
 export const deleteCourse = (pk) => {
     return axiosInstance.delete(`/course/${pk}`);

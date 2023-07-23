@@ -1,5 +1,5 @@
 import {Box, Typography} from "@mui/material";
-import {DrawerHeader} from "../_common/main_window";
+import {DrawerHeader} from "../_common/drawer";
 
 export default function HomeComponent() {
     return (

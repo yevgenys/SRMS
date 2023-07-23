@@ -5,3 +5,4 @@ export const COURSE_LIST_NAVNAME = 'Courses List';
 export const COURSE_ADD_NAVNAME = 'Add New Course';
 export const RESULT_LIST_NAVNAME = 'Results List';
 export const RESULT_ADD_NAVNAME = 'Add New Result';
+export const SCORES = ["A", "B", "C", "D", "E", "F"];
