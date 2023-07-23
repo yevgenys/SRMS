@@ -6,6 +6,7 @@ import {DatePicker} from "@mui/x-date-pickers";
 import {createStudent} from "../_services/StudentsService";
 import DisplaySnackbar from "../_common/user_feedback";
 import LoadingComponent from "../_common/LoadingComponent";
+import dayjs from "dayjs";
 
 export default function StudentComponent() {
     const [loading, setLoading] = useState(false);
@@ -54,6 +55,7 @@ export default function StudentComponent() {
         setEmail(value);
     }
 
+    const atLeast10Years = dayjs().subtract(10, 'year');
     const isDateValid = Boolean(dateOfBirth) && dateOfBirth.isValid();
     const formValid = Boolean(firstName) && Boolean(lastName) && isDateValid && validator.isEmail(email);
 
@@ -100,6 +102,12 @@ export default function StudentComponent() {
                                 <DatePicker label="Date of birth" sx={{width: "100%"}}
                                             format="DD/MM/YYYY"
                                             value={dateOfBirth}
+                                            maxDate={atLeast10Years}
+                                            slotProps={{
+                                                textField: {
+                                                    readOnly: true,
+                                                },
+                                            }}
                                             onChange={(newValue) => setDateOfBirth(newValue)}/>
                             </Grid>
                             <Grid item xs={12}>
