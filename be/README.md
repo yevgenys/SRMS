@@ -2,7 +2,7 @@
 
 ### Requirements:
 
-* python 3.11
+* python 3.11+
 
 ### DB
 
@@ -15,6 +15,9 @@ add prod version of DB to docker config, and reconfig local [dev_settings.py](be
 * SECRET_KEY - for local dev put anything
 
 ### Execute cmd sequence
+
+Note: it is highly recommended to use [virtual env](https://docs.python.org/3/library/venv.html) to not pollute you
+environment
 
 1. install dependencies: python -m pip install -r [requirements.txt](requirements.txt)
 2. execute migrations: python ./manage.py migrate
