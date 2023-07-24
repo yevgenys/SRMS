@@ -20,8 +20,8 @@ Note: it is highly recommended to use [virtual env](https://docs.python.org/3/li
 environment
 
 1. install dependencies: python -m pip install -r [requirements.txt](requirements.txt)
-2. execute migrations: python ./manage.py migrate
-3. execute migrations: python manage.py collectstatic --noinput
+2. execute: python ./manage.py migrate
+3. execute: python manage.py collectstatic --noinput
 4. start dev server: python ./manage.py runserver
 
 ### Local documentation
