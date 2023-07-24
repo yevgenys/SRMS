@@ -16,7 +16,8 @@ NOTE: No intensive testings, implemented few of them for demo
   should be changed for actual application(in the code there are preparations for such migration)
 * There is no pagination for tables(for bigger data chunks should be added)
 * No editing(HTTP PUT) is implemented
-* Docker is not setted up for a development, just for easy local run
+* Docker is not setted up for a development(file change hooks, on host machine, does not reflect into container without
+  restarting container), just for easy local run
 
 ## Run entire project locally
 
