@@ -11,9 +11,6 @@ class StudentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def validate(self, data):
-        """
-        Check that the start is before the stop.
-        """
         if not data['date_of_birth']:
             raise serializers.ValidationError({"date_of_birth": "Field is required"})
 
