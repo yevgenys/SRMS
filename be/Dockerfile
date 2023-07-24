@@ -13,4 +13,4 @@ RUN mkdir ./static
 EXPOSE 8000
 
 RUN chmod +x ./dev-entrypoint.sh
-ENTRYPOINT ["prod-entrypoint.sh"]
+ENTRYPOINT ["dev-entrypoint.sh"]
