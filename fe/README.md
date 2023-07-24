@@ -8,4 +8,5 @@
 #### run command
 
 * navigate to <project root>/fe
+* execute: npm install
 * execute: npm start
