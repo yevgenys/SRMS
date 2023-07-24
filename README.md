@@ -8,7 +8,7 @@ Stands for backend subdirectory
 
 ## NOTES
 
-NOTE: extensive tests are omitted for faster development
+NOTE: No intensive testings, implemented few of them for demo
 
 ## Assumptions
 
@@ -16,7 +16,6 @@ NOTE: extensive tests are omitted for faster development
   should be changed for actual application(in the code there are preparations for such migration)
 * There is no pagination for tables(for bigger data chunks should be added)
 * No editing(HTTP PUT) is implemented
-* No intensive testings, implemented few of them for demo
 * Docker is not setted up for a development, just for easy local run
 
 ## Run entire project locally
