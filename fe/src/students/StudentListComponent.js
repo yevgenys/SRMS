@@ -4,7 +4,7 @@ import {DrawerHeader} from "../_common/drawer";
 import {Box, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import LoadingComponent from "../_common/LoadingComponent";
 import DeleteIcon from '@mui/icons-material/Delete';
-import DisplaySnackbar from "../_common/user_feedback";
+import SnackbarWrapperComponent from "../_common/SnackbarWrapperComponent";
 import {deleteStudent} from "../student/service";
 
 export default function StudentListComponent() {
@@ -85,7 +85,7 @@ export default function StudentListComponent() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <DisplaySnackbar
+                <SnackbarWrapperComponent
                     snackbarOpen={snackbarOpen}
                     setSnackbarOpen={setSnackbarOpen}
                     snackbarType={snackbarType}

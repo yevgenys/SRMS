@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import LoadingComponent from "../_common/LoadingComponent";
 import {DrawerHeader} from "../_common/drawer";
-import DisplaySnackbar from "../_common/user_feedback";
+import SnackbarWrapperComponent from "../_common/SnackbarWrapperComponent";
 import {Box, Button, Card, CardActions, CardContent, CardHeader, Grid, TextField} from "@mui/material";
 import {createCourse} from "./service";
 
@@ -72,7 +72,7 @@ export default function CourseComponent() {
                         </Box>
                     </CardActions>
                 </Card>
-                <DisplaySnackbar
+                <SnackbarWrapperComponent
                     snackbarOpen={snackbarOpen}
                     setSnackbarOpen={setSnackbarOpen}
                     snackbarType={snackbarType}

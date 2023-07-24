@@ -3,7 +3,7 @@ import {DrawerHeader} from "../_common/drawer";
 import {useState} from "react";
 import validator from "validator";
 import {DatePicker} from "@mui/x-date-pickers";
-import DisplaySnackbar from "../_common/user_feedback";
+import SnackbarWrapperComponent from "../_common/SnackbarWrapperComponent";
 import LoadingComponent from "../_common/LoadingComponent";
 import dayjs from "dayjs";
 import {createStudent} from "./service";
@@ -135,7 +135,7 @@ export default function StudentComponent() {
                         </Box>
                     </CardActions>
                 </Card>
-                <DisplaySnackbar
+                <SnackbarWrapperComponent
                     snackbarOpen={snackbarOpen}
                     setSnackbarOpen={setSnackbarOpen}
                     snackbarType={snackbarType}

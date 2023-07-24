@@ -1,6 +1,6 @@
 import {Alert, Portal, Snackbar} from "@mui/material";
 
-export default function DisplaySnackbar({snackbarOpen, setSnackbarOpen, snackbarType, snackbarMsg}) {
+export default function SnackbarWrapperComponent({snackbarOpen, setSnackbarOpen, snackbarType, snackbarMsg}) {
     return (
         <Portal>
             <Snackbar anchorOrigin={{

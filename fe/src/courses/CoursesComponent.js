@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import LoadingComponent from "../_common/LoadingComponent";
 import {Box, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 import {deleteCourse} from "../course/service";
-import DisplaySnackbar from "../_common/user_feedback";
+import SnackbarWrapperComponent from "../_common/SnackbarWrapperComponent";
 import {DrawerHeader} from "../_common/drawer";
 import DeleteIcon from "@mui/icons-material/Delete";
 import {listCourses} from "./service";
@@ -81,7 +81,7 @@ export default function CoursesComponent() {
                         </TableBody>
                     </Table>
                 </TableContainer>
-                <DisplaySnackbar
+                <SnackbarWrapperComponent
                     snackbarOpen={snackbarOpen}
                     setSnackbarOpen={setSnackbarOpen}
                     snackbarType={snackbarType}

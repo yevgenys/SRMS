@@ -17,7 +17,7 @@ import {
     Select,
     TextField
 } from "@mui/material";
-import DisplaySnackbar from "../_common/user_feedback";
+import SnackbarWrapperComponent from "../_common/SnackbarWrapperComponent";
 import {listCourses} from "../courses/service";
 import {SCORES} from "../_common/constants";
 import {createResults} from "./service";
@@ -133,7 +133,7 @@ export default function ResultComponent() {
                         </Box>
                     </CardActions>
                 </Card>
-                <DisplaySnackbar
+                <SnackbarWrapperComponent
                     snackbarOpen={snackbarOpen}
                     setSnackbarOpen={setSnackbarOpen}
                     snackbarType={snackbarType}
